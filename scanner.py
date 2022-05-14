@@ -1,4 +1,4 @@
-from os import walk
+import os
 from nightfall import Nightfall
 
 # reads API key from NIGHTFALL_API_KEY environment variable
@@ -12,7 +12,7 @@ policy_uuid = os.getenv('NIGHTFALL_POLICY_UUID')
 
 # crawl the directory to scan all files
 count = 0
-for (dirpath, dirnames, filenames) in walk(rootpath):
+for (dirpath, dirnames, filenames) in os.walk(rootpath):
 	for filename in filenames:
 		filepath = f"{dirpath}/{filename}"
 		count += 1
